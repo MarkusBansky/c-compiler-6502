@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6"/>
 	<Project>
-		<Option title="cipipi_6502"/>
+		<Option title="cassowary_6502"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;"/>
@@ -37,8 +37,8 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/mark/Git/cassowary-6502/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="cipipi_6502">
-				<Option output="/Users/mark/Git/cassowary-6502/cmake-build-debug/cipipi_6502" prefix_auto="0" extension_auto="0"/>
+			<Target title="cassowary_6502">
+				<Option output="/Users/mark/Git/cassowary-6502/cmake-build-debug/cassowary_6502" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/mark/Git/cassowary-6502/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -51,14 +51,14 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/mark/Git/cassowary-6502/cmake-build-debug/Makefile&quot;  VERBOSE=1 cipipi_6502"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/mark/Git/cassowary-6502/cmake-build-debug/Makefile&quot;  VERBOSE=1 cassowary_6502"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/mark/Git/cassowary-6502/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/Users/mark/Git/cassowary-6502/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/mark/Git/cassowary-6502/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="cipipi_6502/fast">
-				<Option output="/Users/mark/Git/cassowary-6502/cmake-build-debug/cipipi_6502" prefix_auto="0" extension_auto="0"/>
+			<Target title="cassowary_6502/fast">
+				<Option output="/Users/mark/Git/cassowary-6502/cmake-build-debug/cassowary_6502" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/mark/Git/cassowary-6502/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -71,7 +71,7 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/mark/Git/cassowary-6502/cmake-build-debug/Makefile&quot;  VERBOSE=1 cipipi_6502/fast"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/mark/Git/cassowary-6502/cmake-build-debug/Makefile&quot;  VERBOSE=1 cassowary_6502/fast"/>
 					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/mark/Git/cassowary-6502/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j12 -f &quot;/Users/mark/Git/cassowary-6502/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/mark/Git/cassowary-6502/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -79,7 +79,7 @@
 			</Target>
 		</Build>
 		<Unit filename="/Users/mark/Git/cassowary-6502/src/main.c">
-			<Option target="cipipi_6502"/>
+			<Option target="cassowary_6502"/>
 		</Unit>
 		<Unit filename="/Users/mark/Git/cassowary-6502/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
