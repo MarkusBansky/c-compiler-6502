@@ -3,4 +3,4 @@ project(cassowary_6502 C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(cassowary_6502 src/main.c)
+add_executable(cassowary_6502 src/main.c src/log/log.c src/log/log.h src/app.h)

@@ -78,6 +78,15 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/mark/Git/cassowary-6502/src/app.h">
+			<Option target="cassowary_6502"/>
+		</Unit>
+		<Unit filename="/Users/mark/Git/cassowary-6502/src/log/log.c">
+			<Option target="cassowary_6502"/>
+		</Unit>
+		<Unit filename="/Users/mark/Git/cassowary-6502/src/log/log.h">
+			<Option target="cassowary_6502"/>
+		</Unit>
 		<Unit filename="/Users/mark/Git/cassowary-6502/src/main.c">
 			<Option target="cassowary_6502"/>
 		</Unit>
