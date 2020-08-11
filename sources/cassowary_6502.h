@@ -5,26 +5,26 @@
 #ifndef CASSOWARY_6502_CASSOWARY_6502_H
 #define CASSOWARY_6502_CASSOWARY_6502_H
 
-#define _PORT_B 0x110000000000000
-#define _PORT_A 0x110000000000001
-#define _DDR_B  0x110000000000010
-#define _DDR_A  0x110000000000011
+#define _PORT_B 0x6000
+#define _PORT_A 0x6001
+#define _DDR_B  0x6002
+#define _DDR_A  0x6003
 
-#define STA(address, value) ((*(volatile unsigned char *) address) = (value))
+#define STA(addr, val)  (*(unsigned char*) (addr) = (val))
 #define LCD_STATUS (*(volatile unsigned int *) _PORT_B)
+#define LDA(addr) (*(unsigned char*) (addr))
 
 void lcd_ready() {
     STA(_DDR_B, 0x00);
 
-    do {
-        STA(_PORT_A, 0x40);
-        STA(_PORT_A, 0xc0);
-
-        if ((LCD_STATUS & 0x10000000) != 0) break;
-    } while (1);
+check:
+    STA(_PORT_A, 0x40);
+    STA(_PORT_A, 0xc0);
+    if ((LDA(_PORT_B) & 0x10000000) != 0) {
+        goto check;
+    }
 
     STA(_PORT_A, 0x40);
-
     STA(_DDR_B, 0xff);
 }
 

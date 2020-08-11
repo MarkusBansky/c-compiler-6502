@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(cassowary_6502)
+project(cassowary_6502 C)
 
 add_library(cassowary_6502 STATIC sources/cassowary_6502.c)
 
