@@ -6,7 +6,7 @@
 
 int main(void) {
     lcd_init();
-    lcd_print("Hello world!", 12);
+    lcd_print("Hello world!");
 
     return 0;
 }

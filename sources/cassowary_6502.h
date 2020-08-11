@@ -11,18 +11,17 @@
 #define _DDR_A  0x110000000000011
 
 #define STA(address, value) ((*(volatile unsigned char *) address) = (value))
+#define LCD_STATUS (*(volatile unsigned int *) _PORT_B)
 
 void lcd_ready() {
     STA(_DDR_B, 0x00);
 
-    char first_byte = 0x00;
     do {
         STA(_PORT_A, 0x40);
         STA(_PORT_A, 0xc0);
 
-        char* port_b_reg = _PORT_B;
-        first_byte = port_b_reg[0];
-    } while ((first_byte & 0x10000000) != 0);
+        if ((LCD_STATUS & 0x10000000) != 0) break;
+    } while (1);
 
     STA(_PORT_A, 0x40);
 
@@ -66,10 +65,10 @@ void lcd_init() {
     lcd_send_instruction(0x01);
 }
 
-void lcd_print(char *text, int length) {
+void lcd_print(char *text) {
     char* t;
-    for (t = text; t != '\0'; t++) {
-        lcd_send_char(t);
+    for (t = text; *t != '\0'; t++) {
+        lcd_send_char(*t);
     }
 }
 
