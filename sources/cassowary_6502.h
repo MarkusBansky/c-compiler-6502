@@ -11,7 +11,7 @@
 #define _DDR_A  0x6003
 
 #define STA(addr, val)  (*(unsigned char*) (addr) = (val))
-#define LCD_STATUS (*(volatile unsigned int *) _PORT_B)
+//#define LCD_STATUS (*(volatile unsigned int *) _PORT_B)
 #define LDA(addr) (*(unsigned char*) (addr))
 
 void lcd_ready() {
@@ -29,7 +29,7 @@ check:
 }
 
 void lcd_send_instruction(int instruction) {
-    lcd_ready();
+//    lcd_ready();
 
     STA(_PORT_B, instruction);
 
@@ -39,7 +39,7 @@ void lcd_send_instruction(int instruction) {
 }
 
 void lcd_send_char(char ch) {
-    lcd_ready();
+//    lcd_ready();
 
     STA(_PORT_B, ch);
 

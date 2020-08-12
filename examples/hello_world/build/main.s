@@ -21,7 +21,7 @@
 
 .segment	"RODATA"
 
-L0073:
+L0071:
 	.byte	$48,$65,$6C,$6C,$6F,$20,$77,$6F,$72,$6C,$64,$21,$00
 
 ; ---------------------------------------------------------------
@@ -104,10 +104,6 @@ L0007:	lda     #$40
 ;
 	jsr     pushax
 ;
-; lcd_ready();
-;
-	jsr     _lcd_ready
-;
 ; STA(_PORT_B, instruction);
 ;
 	ldy     #$00
@@ -147,10 +143,6 @@ L0007:	lda     #$40
 ; void lcd_send_char(char ch) {
 ;
 	jsr     pusha
-;
-; lcd_ready();
-;
-	jsr     _lcd_ready
 ;
 ; STA(_PORT_B, ch);
 ;
@@ -265,12 +257,12 @@ L0007:	lda     #$40
 	jsr     decsp2
 	ldy     #$03
 	jsr     ldaxysp
-L0077:	jsr     stax0sp
+L0075:	jsr     stax0sp
 	sta     ptr1
 	stx     ptr1+1
 	ldy     #$00
 	lda     (ptr1),y
-	beq     L0067
+	beq     L0065
 ;
 ; lcd_send_char(*t);
 ;
@@ -285,11 +277,11 @@ L0077:	jsr     stax0sp
 ;
 	jsr     ldax0sp
 	jsr     incax1
-	jmp     L0077
+	jmp     L0075
 ;
 ; }
 ;
-L0067:	jmp     incsp4
+L0065:	jmp     incsp4
 
 .endproc
 
@@ -310,8 +302,8 @@ L0067:	jmp     incsp4
 ;
 ; lcd_print("Hello world!");
 ;
-	lda     #<(L0073)
-	ldx     #>(L0073)
+	lda     #<(L0071)
+	ldx     #>(L0071)
 	jsr     _lcd_print
 ;
 ; return 0;
