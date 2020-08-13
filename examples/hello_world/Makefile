@@ -28,7 +28,7 @@ all: c_asm asm_o o_bin
 # do not need it for the 6502 Ben Eater's computer
 c_asm:
 	cc65 $(TARGET) $(CPU) $(INCLUDE_DIR) -v -Oi -T -o $(ASSMBLS) $(SOURCES)
-	sed -i.bak '/__STARTUP__/d' $(ASSMBLLS)
+	sed -i.bak '/__STARTUP__/d' $(ASSMBLS)
 
 # Building asm code into binary files
 asm_o:

@@ -32,15 +32,15 @@
 //    STA(_DDR_B, 0xff);
 //}
 
-void lcd_send_instruction(int instruction) {
-//    lcd_ready();
-
-    STA(_PORT_B, instruction);
-
-    STA(_PORT_A, 0x00);
-    STA(_PORT_A, 0x80);
-    STA(_PORT_A, 0x00);
-}
+//void lcd_send_instruction(int instruction) {
+////    lcd_ready();
+//
+//    STA(_PORT_B, instruction);
+//
+//    STA(_PORT_A, 0x00);
+//    STA(_PORT_A, 0x80);
+//    STA(_PORT_A, 0x00);
+//}
 
 //void lcd_send_char(char ch) {
 //    lcd_ready();
@@ -60,13 +60,13 @@ void lcd_init() {
     STA(_DDR_B, 0b11111111);
     STA(_DDR_A, 0b11100000);
 
-    lcd_send_instruction(0b00111000);
-
-    lcd_send_instruction(0b00001110);
-
-    lcd_send_instruction(0b00000110);
-
-    lcd_send_instruction(0b00000001);
+//    lcd_send_instruction(0b00111000);
+//
+//    lcd_send_instruction(0b00001110);
+//
+//    lcd_send_instruction(0b00000110);
+//
+//    lcd_send_instruction(0b00000001);
 }
 
 //void lcd_print(char *text) {
