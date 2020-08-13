@@ -21,19 +21,29 @@ OBJECTS = $(SOURCES:%.c=$(BUILD_FOLDER)/%.o)
 $(BUILD_FOLDER): clean all test
 
 # Standard build
-all:
-	# Create build directory
-	mkdir $(BUILD_FOLDER)
-	# Building C source code into asm
+all: c_asm asm_o o_bin
+
+# Building C source code into asm
+c_asm:
 	cc65 $(TARGET) $(CPU) $(INCLUDE_DIR) -v -O -T -o $(ASSMBLS) $(SOURCES)
-	# Building asm code into binary files
+
+# Building asm code into binary files
+asm_o:
 	ca65 $(TARGET) $(CPU) $(INCLUDE_DIR) -v -o $(OBJECTS) $(ASSMBLS)
-	# Linking binary with libraries
-	ld65 $(LINK_DIR) $(CONFIG) $(START) -v -o $(BUILD_FOLDER)/image.bin $(OBJECTS) c64.lib
+
+# Linking binary with libraries
+o_bin:
+	ld65 $(LINK_DIR) -t none $(START) -v -o $(BUILD_FOLDER)/image.bin $(OBJECTS) c64.lib
 
 # Display ROM contents
 test:
 	hexdump -C $(BUILD_FOLDER)/image.bin
 
 clean:
+	# Remove build folder
 	rm -rf $(BUILD_FOLDER)
+	# Create build folder
+	mkdir $(BUILD_FOLDER)
+
+cl: clean
+	cl65 -g -Oi $(TARGET) -C firmware.cfg -o $(BUILD_FOLDER)/image.bin $(SOURCES)
