@@ -2,7 +2,7 @@
 INCLUDE_DIR = -I /usr/local/include
 LINK_DIR =  -L /usr/local/lib
 TARGET = -t none
-CPU = --cpu 65C02
+CPU = --cpu 6502
 START = -D LOADADDR=$8000
 CONFIG = -C none.cfg
 
@@ -24,8 +24,11 @@ $(BUILD_FOLDER): clean all test
 all: c_asm asm_o o_bin
 
 # Building C source code into asm
+# Also remove the file containing the startup code as we
+# do not need it for the 6502 Ben Eater's computer
 c_asm:
-	cc65 $(TARGET) $(CPU) $(INCLUDE_DIR) -v -O -T -o $(ASSMBLS) $(SOURCES)
+	cc65 $(TARGET) $(CPU) $(INCLUDE_DIR) -v -Oi -T -o $(ASSMBLS) $(SOURCES)
+	sed -i.bak '/__STARTUP__/d' $(ASSMBLLS)
 
 # Building asm code into binary files
 asm_o:
