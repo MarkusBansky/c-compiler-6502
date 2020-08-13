@@ -2,7 +2,7 @@
 INCLUDE_DIR = -I /usr/local/include
 LINK_DIR =  -L /usr/local/lib
 TARGET = -t none
-CPU = --cpu 6502
+CPU = --cpu 65C02
 START = -D LOADADDR=$8000
 CONFIG = -C none.cfg
 
